@@ -1,0 +1,35 @@
+{
+  "nodes": [
+    { "name": "HQ", "dbs": ["recipes", "employees", "finances", "press", "secrets"] },
+    { "name": "Human Resources", "dbs": ["employees", "finances", "press"] },
+    { "name": "Test Kitchen A", "dbs": ["recipes", "press", "secrets"] },
+    { "name": "Public Relations", "dbs": ["employees", "press", "secrets"] },
+    { "name": "Manufacturing A", "dbs": ["recipes", "finances"] },
+    { "name": "Test Kitchen B", "dbs": ["recipes", "press", "secrets"] },
+    { "name": "Manufacturing B", "dbs": ["recipes", "finances"] },
+    { "name": "Chef", "dbs": ["recipes"] },
+    { "name": "Accountant", "dbs": ["finances"] },
+    { "name": "Investigator", "dbs": ["secrets"] }
+  ],
+  "edges": [
+    { "source": "HQ", "target": "Human Resources", "db": "employees" },
+    { "source": "HQ", "target": "Human Resources", "db": "finances" },
+    { "source": "HQ", "target": "Human Resources", "db": "press" },
+    { "source": "HQ", "target": "Test Kitchen A", "db": "recipes" },
+    { "source": "HQ", "target": "Test Kitchen A", "db": "press" },
+    { "source": "HQ", "target": "Test Kitchen A", "db": "secrets" },
+    { "source": "HQ", "target": "Public Relations", "db": "employees" },
+    { "source": "HQ", "target": "Public Relations", "db": "press" },
+    { "source": "HQ", "target": "Public Relations", "db": "secrets" },
+    { "source": "Test Kitchen A", "target": "Chef", "db": "recipes" },
+    { "source": "HQ", "target": "Test Kitchen B", "db": "recipes" },
+    { "source": "HQ", "target": "Test Kitchen B", "db": "press" },
+    { "source": "HQ", "target": "Test Kitchen B", "db": "secrets" },
+    { "source": "Chef", "target": "Manufacturing A", "db": "recipes" },
+    { "source": "Human Resources", "target": "Manufacturing A", "db": "finances" },
+    { "source": "HQ", "target": "Manufacturing B", "db": "recipes" },
+    { "source": "HQ", "target": "Manufacturing B", "db": "finances" },
+    { "source": "Human Resources", "target": "Accountant", "db": "finances" },
+    { "source": "Public Relations", "target": "Investigator", "db": "secrets" }
+  ]
+}

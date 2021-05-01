@@ -1,0 +1,10 @@
+api:
+  build: ./api
+  ports:
+    - "31337:31337"
+client:
+  build: ./client
+  links:
+    - api
+  ports:
+    - "443:3000"

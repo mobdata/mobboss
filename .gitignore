@@ -1,0 +1,32 @@
+# build output
+dist
+client/build
+
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+yarn-error.log
+yarn.log
+
+# coverage
+.nyc_output
+coverage
+
+# Environment variables
+*/.env
+*/.env.development
+
+# Misc
+*.swp
+.idea
+*.code-workspace
+
+# RPM
+*.service
+SOURCES
+SPECS
+
+# Docker
+tls

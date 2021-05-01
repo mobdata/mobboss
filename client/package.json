@@ -1,0 +1,68 @@
+{
+  "name": "MobBoss-Client",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "env-dev": "if [ -e .env.development ]; then cp .env.development .env; else sudo cp /etc/mobboss/env.dev.cli ~/mobboss/client/.env.development; cp .env.development .env; fi",
+    "env-default": "if [ -e .env.default ]; then cp .env.default .env; fi",
+    "start": "npm run env-dev; react-scripts start",
+    "build": "npm run env-default; react-scripts build",
+    "test": "npm run env-default; react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@mobdata/classification-banner": "^1.0.1",
+    "@mobdata/little-differ-react": "^1.0.3",
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/icons": "^4.9.1",
+    "chart.js": "^2.9.3",
+    "connected-react-router": "^6.7.0",
+    "cytoscape": "^3.12.0",
+    "d3": "^5.12.0",
+    "express": "^4.17.1",
+    "history": "^4.10.1",
+    "http-proxy-middleware": "^1.0.1",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-chartjs-2": "^2.9.0",
+    "react-collapsible": "2.8.0",
+    "react-dom": "^16.13.0",
+    "react-graph-vis": "^1.0.5",
+    "react-helmet": "^5.2.1",
+    "react-json-editor-viewer": "^1.0.7",
+    "react-json-view": "^1.19.1",
+    "react-loading": "^2.0.3",
+    "react-material-ui-form-validator": "^2.0.10",
+    "react-panelgroup": "^1.0.10",
+    "react-redux": "^7.2.0",
+    "react-redux-loading-bar": "^4.6.0",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-select": "^3.0.8",
+    "react-sparklines": "^1.7.0",
+    "react-tree-graph": "^4.0.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^1.2.1",
+    "shortid": "2.2.15"
+  },
+  "devDependencies": {
+    "redux-immutable-state-invariant": "^2.1.0",
+    "react-scripts": "3.4.0"
+  },
+  "homepage": ".",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

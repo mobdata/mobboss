@@ -1,0 +1,41 @@
+.Collapsible--conflict__trigger {
+
+    display: inline-block;
+  
+    font-weight: 800;
+  
+    text-decoration: none;
+  
+    padding-top: 15px;
+
+    padding-right: 15px;
+  
+    color: black;
+
+    width: fit-content;
+  
+  }
+.Collapsible--conflict__trigger::after {
+
+    font-family: 'FontAwesome';
+    
+    font-weight: bolder;
+    
+    font-size: large;
+
+    content: '\005E';
+
+    display: inline-block;
+
+    top: 35px;
+
+    transition: transform 300ms;
+
+  }
+
+
+    .is-open::after {
+
+      transform: rotateZ(180deg);
+
+    }

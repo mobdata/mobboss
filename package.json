@@ -1,0 +1,66 @@
+{
+  "name": "mobboss",
+  "version": "1.0.1",
+  "main": "index.js",
+  "author": "Daniel Kelly",
+  "contributors": [
+    {
+      "name": "Daniel Kelly"
+    },
+    {
+      "name": "Juliet Adams"
+    },
+    {
+      "name": "Connor Bulakites"
+    }
+  ],
+  "license": "MIT",
+  "scripts": {
+    "install-all": "npm install; pushd api && npm install; popd; pushd client && npm install; popd",
+    "clean": "rm -rf api/dist; rm -rf client/build/",
+    "slate": "rm -rf node_modules; npm install; rm -rf api/node_modules && npm install; cd ../client; rm -rf node_modules && npm install",
+    "dev": "concurrently \"cd api; npm run dev\" \"cd client; HTTPS=true npm start\"",
+    "start": "cd api && npm start",
+    "build": "cd api && npm run build; cd ../client && npm run build",
+    "build:server": "cd api && npm run build",
+    "build:client": "cd client && npm run build",
+    "build-rpm": "npm run install-all; npm run build;./build-rpm -c npm",
+    "test": "cd api && npm run test",
+    "lint": "eslint api client/src"
+  },
+  "pre-commit": [
+    "test",
+    "lint"
+  ],
+  "dependencies": {
+    "babel-eslint": "10.0.3",
+    "concurrently": "^5.1.0",
+    "cytoscape": "^3.12.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-ava": "^10.2.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "jsnetworkx": "^0.3.4",
+    "lodash": "^4.17.15",
+    "react-loading": "^2.0.3",
+    "react-network-diagrams": "^0.8.0"
+  },
+  "devDependencies": {
+    "hogan": "^1.0.2",
+    "pre-commit": "^1.2.2",
+    "react-router": "^5.1.2",
+    "speculate": "^2.1.1"
+  },
+  "spec": {
+    "requires": [
+      "nodejs"
+    ],
+    "post": [
+      "pushd /usr/lib/mobboss; source ./mbaddsecret \"api/.env\"; popd",
+      "usermod -d /usr/lib/mobboss mobboss",
+      "systemctl daemon-reload"
+    ]
+  }
+}

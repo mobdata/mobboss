@@ -1,0 +1,7 @@
+client/src/registerServiceWorker.js
+client/node_modules
+client/build
+api/node_modules
+api/index.js
+api/webpack.config.server.js
+api/dist

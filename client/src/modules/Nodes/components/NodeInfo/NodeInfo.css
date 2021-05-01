@@ -1,0 +1,47 @@
+
+
+.Collapsible--info__contentInner {
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  border-top: 0;
+}
+
+
+.Collapsible--info__trigger {
+
+  display: block;
+
+  font-weight: 400;
+
+  text-decoration: none;
+
+  padding-top: 5px;
+
+  padding-bottom: 5px;
+
+  position: relative;
+
+  color: black;
+
+}
+.Collapsible--info__trigger::after {
+
+    font-family: 'FontAwesome';
+
+    content: '\005E';
+
+    position: absolute;
+
+    right: 10px;
+
+    transition: transform 300ms;
+
+  }
+
+
+    .is-open::after {
+
+      transform: rotateZ(180deg);
+
+    }

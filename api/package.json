@@ -1,0 +1,73 @@
+{
+  "name": "mobboss-api",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Daniel Kelly",
+  "license": "MIT",
+  "scripts": {
+    "env-dev": "if [ -e .env.development ]; then cp .env.development .env; else sudo cp /etc/mobboss/env.dev.api ~/mobboss/api/.env.development; cp .env.development .env; fi",
+    "env-default": "if [ -e .env.default ]; then cp .env.default .env; fi",
+    "clean": "rm -rf node_modules; rm -rf dist",
+    "slate": "rm -rf node_modules; rm -rf dist; npm install",
+    "dev": "npm run env-dev; NODE_ENV=development nodemon index.js",
+    "start": "NODE_ENV=production node index.js",
+    "build": "npm run env-default; NODE_ENV=production webpack --config webpack.config.server.js",
+    "test": "npm run env-default; NODE_ENV=test ava -v; rm .env",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.8.4",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "chalk": "^3.0.0",
+    "clear": "^0.1.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.4",
+    "dotenv-safe": "^6.1.0",
+    "express": "4.17.1",
+    "helmet": "^3.21.3",
+    "influx": "^5.5.1",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.6.0",
+    "nano": "^8.2.1",
+    "passport": "^0.4.1",
+    "passport-client-cert": "^2.1.0",
+    "passport-local": "^1.0.0",
+    "passport-trusted-header": "^1.1.0",
+    "shortid": "^2.2.15"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-function-bind": "^7.8.3",
+    "@babel/register": "^7.8.6",
+    "ava": "^3.5.0",
+    "babel-loader": "^8.0.6",
+    "nodemon": "^2.0.2",
+    "pre-commit": "^1.2.2",
+    "speculate": "^2.1.1",
+    "supertest": "^4.0.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-externals-plugin": "^1.0.0"
+  },
+  "ava": {
+    "files": [
+      "**/*.spec.js"
+    ],
+    "source": [
+      "**/*.js"
+    ],
+    "failFast": false,
+    "require": [
+      "@babel/register",
+      "@babel/polyfill"
+    ],
+    "@babel": "inherit"
+  }
+}
